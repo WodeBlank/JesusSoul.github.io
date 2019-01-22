@@ -1,0 +1,336 @@
+﻿
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="pragram" content="no-cache" />
+
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+<title>扭蛋机</title>
+<!--移动端版本兼容 -->
+<script type="text/javascript">
+    var phoneWidth =  parseInt(window.screen.width);
+    var phoneScale = phoneWidth/640;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)){
+        var version = parseFloat(RegExp.$1);
+        // andriod 2.3
+        if(version>2.3){
+            document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+        // andriod 2.3以上
+        }else{
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+        // 其他系统
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+    //微信去掉下方刷新栏
+    if(RegExp("MicroMessenger").test(navigator.userAgent)){
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
+    }
+</script>
+
+    <script src="js/jquery1.8.3.min.js"></script>
+
+</head>
+<body>
+
+<div class="niu_danji">
+	<!--机器-->
+	<div class="game_qu">
+    	<!--go-->
+        <div class="game_go">100/次</div>
+         <div class="wdjifen">1000</div>
+    </div>
+    
+    <!--球-->
+    <div class="dan_gund">
+        <span  class="qiu_1 diaol_1"></span>
+        <span  class="qiu_2 diaol_2"> </span>
+        <span  class="qiu_3 diaol_3"></span>
+        
+        <span  class="qiu_4 diaol_4"></span>
+        <span  class="qiu_5 diaol_5"></span>
+        <span  class="qiu_6 diaol_6"></span>>
+        
+        <span  class="qiu_7 diaol_7"></span>
+        <span  class="qiu_8 diaol_8"></span>
+        
+        
+        <span  class="qiu_9 diaol_9"></span>
+        <span  class="qiu_10 diaol_10"></span> 
+        <span  class="qiu_11 diaol_11"></span>   
+               
+    </div>
+
+     <!--中奖掉落-->
+   <div class="medon"><img src="images/mendong.png"/></div>
+   <div class="zjdl ">
+   		<span></span>
+   </div>
+    
+   </div>
+
+
+
+
+<!--中奖 获得一等奖-->
+<div class="zonj_zezc none" id="jianpin_1">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>JesusSoul</b>
+        </h2>
+    </div></div>
+
+<!--中奖获得二等奖-->
+<div class="zonj_zezc none"  id="jianpin_2">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>喵宝</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_3">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>奶思</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_4">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>小欧</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_5">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>小思</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_6">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>蒲大神</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_7">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>乔伊</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_8">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>波哥</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_9">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>蛤蟆</b>
+        </h2>
+    </div>
+</div>
+
+<!--中奖 获得三等奖-->
+<div class="zonj_zezc none"  id="jianpin_10">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	<b>恭喜你！<br>朴kk</b>
+        </h2>
+    </div>
+</div>
+
+<!--没有中奖-->
+<div class="zonj_zezc none" id="jianpin_kong">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	咦？没有抽中？
+        </h2>
+    </div>
+</div>
+
+
+<!--积分不足-->
+<div class="zonj_zezc none" id="no_jifeng">
+	<div class="jpzs aiqiyi tc_anima">
+    	<em><img src="images/close.png"/></em>
+        <h2>
+        	对不起，积分不足！
+        </h2>
+    </div>
+</div>
+<script>
+	
+$(document).ready(function(e) {
+	//一等奖 关闭
+	$("#jianpin_1 em img").click(function(){
+		$("#jianpin_1").hide();
+		}
+	);		
+	//二等奖 关闭
+	$("#jianpin_2 em img").click(function(){
+		$("#jianpin_2").hide();
+		}
+	);		
+	//三等奖 关闭
+	$("#jianpin_3 em img").click(function(){
+		$("#jianpin_3").hide();
+		}
+	);			
+	//没有中奖 关闭
+	$("#jianpin_4 em img").click(function(){
+		$("#jianpin_4").hide();
+		}
+	);		
+	$("#jianpin_5 em img").click(function(){
+		$("#jianpin_5").hide();
+		}
+	);
+	$("#jianpin_6 em img").click(function(){
+		$("#jianpin_6").hide();
+		}
+	);
+	$("#jianpin_7 em img").click(function(){
+		$("#jianpin_7").hide();
+		}
+	);
+	$("#jianpin_8 em img").click(function(){
+		$("#jianpin_8").hide();
+		}
+	);
+	$("#jianpin_9 em img").click(function(){
+		$("#jianpin_9").hide();
+		}
+	);
+	$("#jianpin_10 em img").click(function(){
+		$("#jianpin_10").hide();
+		}
+	);
+		
+		
+	//积分不足 关闭
+	$("#no_jifeng em img").click(function(){
+		$("#no_jifeng").hide();
+		}
+	);		
+		
+var score=1000;
+$(".wdjifen").html(score);
+
+
+$(".game_go").click(function(){
+	score-=100;
+		if(score<0){
+			for(i=1;i<=11;i++){
+				$(".qiu_"+i).removeClass("wieyi_"+i);
+			}
+			$("#no_jifeng").show();
+			}else{
+				draw()
+				}
+		});
+	
+	
+function draw(){
+	var number =Math.floor(10*Math.random()+1);  
+
+	for(i=1;i<=11;i++){
+			$(".qiu_"+i).removeClass("diaol_"+i);
+			$(".qiu_"+i).addClass("wieyi_"+i);
+		};
+			
+	setTimeout(function (){
+		for(i=1;i<=11;i++){
+		$(".qiu_"+i).removeClass("wieyi_"+i);
+		}
+	},1100);	
+	setTimeout(function(){
+		switch(number){
+			case 1:$(".zjdl").children("span").addClass("diaL_1");break;
+			case 2:$(".zjdl").children("span").addClass("diaL_2");break;
+			case 3:$(".zjdl").children("span").addClass("diaL_3");break;
+			case 4:$(".zjdl").children("span").addClass("diaL_4");break;
+			case 5:$(".zjdl").children("span").addClass("diaL_5");break;
+			case 6:$(".zjdl").children("span").addClass("diaL_6");break;
+			case 7:$(".zjdl").children("span").addClass("diaL_7");break;
+			case 8:$(".zjdl").children("span").addClass("diaL_8");break;
+			case 9:$(".zjdl").children("span").addClass("diaL_9");break;
+			case 10:$(".zjdl").children("span").addClass("diaL_10");break;
+		}
+		$(".zjdl").removeClass("none").addClass("dila_Y");
+				setTimeout(function (){
+				switch(number){
+					case 1:$("#jianpin_1").show();break;
+					case 2:$("#jianpin_2").show();break;
+					case 3:$("#jianpin_3").show();break;
+					case 4:$("#jianpin_4").show();break;
+					case 5:$("#jianpin_5").show();break;
+					case 6:$("#jianpin_6").show();break;
+					case 7:$("#jianpin_7").show();break;
+					case 8:$("#jianpin_8").show();break;
+					case 9:$("#jianpin_9").show();break;
+					case 10:$("#jianpin_10").show();break;
+				}
+			},900);
+		},1100)
+	
+	//取消动画
+	setTimeout(function (){
+			$(".zjdl").addClass("none").removeClass("dila_Y");
+			$(".wdjifen").html(score);
+			$(".zjdl").children("span").removeAttr('class');
+			
+		},2500)
+			
+}	
+});
+
+
+</script>
+
+
+</body>
+</html>
